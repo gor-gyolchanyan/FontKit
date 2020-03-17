@@ -30,13 +30,11 @@ extension FontDescriptor {
     }
 }
 
-// Topic: Main
+// Topic: Standard
 
 extension FontDescriptor.Slant {
 
     // Exposed
 
-    public init() {
-        self.init(rawValue: 0)
-    }
+    public static let regular = Self(rawValue: 0)
 }

@@ -21,3 +21,12 @@ extension FontDescriptor {
         public let rawValue: RawValue
     }
 }
+
+// Topic: Standard
+
+extension FontDescriptor.Family {
+
+    // Exposed
+
+    public static let regular = Self(rawValue: "Helvetica Neue")
+}

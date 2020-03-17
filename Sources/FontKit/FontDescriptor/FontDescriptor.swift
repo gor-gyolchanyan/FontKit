@@ -12,11 +12,11 @@ public struct FontDescriptor {
     // Exposed
 
     public init(
-        family: Family,
-        size: Size,
-        slant: Slant = .init(),
-        weight: Weight = .init(),
-        width: Width = .init()
+        family: Family = .regular,
+        size: Size = .regular,
+        slant: Slant = .regular,
+        weight: Weight = .regular,
+        width: Width = .regular
     ) {
         self.family = family
         self.size = size

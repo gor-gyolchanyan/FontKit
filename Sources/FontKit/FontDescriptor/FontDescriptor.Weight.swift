@@ -30,13 +30,27 @@ extension FontDescriptor {
     }
 }
 
-// Topic: Main
+// Topic: Standard
 
 extension FontDescriptor.Weight {
 
     // Exposed
 
-    public init() {
-        self.init(rawValue: 0)
-    }
+    public static let ultraLight = Self(rawValue: -0.8)
+
+    public static let thin = Self(rawValue: -0.6)
+
+    public static let light = Self(rawValue: -0.4)
+
+    public static let regular = Self(rawValue: 0.0)
+
+    public static let medium = Self(rawValue: 0.23)
+
+    public static let semibold = Self(rawValue: 0.3)
+
+    public static let bold = Self(rawValue: 0.4)
+
+    public static let heavy = Self(rawValue: 0.56)
+
+    public static let black = Self(rawValue: 0.62)
 }

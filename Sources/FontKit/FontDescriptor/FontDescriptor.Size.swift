@@ -25,3 +25,51 @@ extension FontDescriptor {
         public let rawValue: RawValue
     }
 }
+
+// Type: Standard
+
+extension FontDescriptor.Size {
+
+    // Exposed
+
+    public static func * (_ some: Self, _ other: RawValue) -> Self {
+        .init(rawValue: some.rawValue * other)
+    }
+
+    public static func / (_ some: Self, _ other: RawValue) -> Self {
+        .init(rawValue: some.rawValue / other)
+    }
+
+    public static func / (_ some: Self, _ other: Self) -> RawValue {
+        some.rawValue / other.rawValue
+    }
+
+    public static let regular = Self(rawValue: 14)
+}
+
+// Protocol: AdditiveArithmetic
+
+extension FontDescriptor.Size: AdditiveArithmetic {
+
+    // Exposed
+
+    public static var zero: Self {
+        .init(rawValue: .zero)
+    }
+
+    public static func + (_ some: Self, _ other: Self) -> Self {
+        .init(rawValue: some.rawValue + other.rawValue)
+    }
+
+    public static func += (_ some: inout Self, _ other: Self) {
+        some = some + other
+    }
+
+    public static func - (_ some: Self, _ other: Self) -> Self {
+        .init(rawValue: some.rawValue + other.rawValue)
+    }
+
+    public static func -= (_ some: inout Self, _ other: Self) {
+        some = some - other
+    }
+}
