@@ -22,6 +22,25 @@ public struct FontFace: Hashable {
     let _name: String
 }
 
+extension FontFace {
+
+    // Exposed
+
+    // Type: Font
+    // Topic: Main
+
+    public init?(
+        name: String,
+        in family: FontFamily,
+        manager: FontManager = .default
+    ) {
+        self.init(_name: name)
+        guard manager.fontSet[family]?.contains(self) ?? false else {
+            return nil
+        }
+    }
+}
+
 extension FontFace: CustomStringConvertible {
 
     // Exposed

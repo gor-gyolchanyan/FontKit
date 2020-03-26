@@ -27,22 +27,6 @@ extension FontManager {
         return _fontSet
     }
 
-    public func fontFamily(_ name: String) -> FontFamily? {
-        let result = FontFamily(_name: name)
-        guard fontSet.keys.contains(result) else {
-            return nil
-        }
-        return result
-    }
-
-    public func fontFace(_ name: String, for family: FontFamily) -> FontFace? {
-        let result = FontFace(_name: name)
-        guard fontSet[family]?.contains(result) ?? false else {
-            return nil
-        }
-        return result
-    }
-
     public func requestFontSetUpdate() {
         _isFontSetUpdated = false
     }

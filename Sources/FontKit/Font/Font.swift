@@ -28,3 +28,30 @@ public struct Font: Hashable {
 
     public var size: FontSize
 }
+
+extension Font {
+
+    // Exposed
+
+    // Type: Font
+    // Topic: Main
+
+    public init?(
+        familyName: String,
+        faceName: String,
+        size: FontSize,
+        manager: FontManager = .default
+    ) {
+        guard
+            let family = FontFamily(name: familyName, manager: manager),
+            let face = FontFace(name: faceName, in: family, manager: manager)
+        else {
+            return nil
+        }
+        self.init(
+            family: family,
+            face: face,
+            size: size
+        )
+    }
+}

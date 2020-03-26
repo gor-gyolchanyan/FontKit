@@ -20,6 +20,24 @@ public struct FontFamily: Hashable {
     let _name: String
 }
 
+extension FontFamily {
+
+    // Exposed
+
+    // Type: Font
+    // Topic: Main
+
+    public init?(
+        name: String,
+        manager: FontManager = .default
+    ) {
+        self.init(_name: name)
+        guard manager.fontSet.keys.contains(self) else {
+            return nil
+        }
+    }
+}
+
 extension FontFamily: CustomStringConvertible {
 
     // Exposed

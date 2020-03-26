@@ -16,21 +16,16 @@ extension MainTestCase {
     func testMain() {
         let fontFamilyName = "Helvetica Neue"
         let fontFaceName = "Bold Italic"
-
-        let fontManager = FontManager.default
-        guard let fontFamily = fontManager.fontFamily(fontFamilyName) else {
-            XCTFail("Font family \(String(reflecting: fontFamilyName)) does not exist.")
+        guard
+            let initialFont = Font(
+                familyName: fontFamilyName,
+                faceName: fontFaceName,
+                size: 16
+            )
+        else {
+            XCTFail("There is no font with family \(String(reflecting: fontFamilyName)) and face \(String(reflecting: fontFaceName)).")
             return
         }
-        guard let fontFace = fontManager.fontFace(fontFaceName, for: fontFamily) else {
-            XCTFail("Font face \(String(reflecting: fontFaceName)) for font family \(String(reflecting: fontFamilyName)) does not exist.")
-            return
-        }
-        let initialFont = Font(
-            family: fontFamily,
-            face: fontFace,
-            size: 16
-        )
         let nativeFont = NativeFont(initialFont)
         let finalFont = Font(nativeFont)
         XCTAssertEqual(initialFont, finalFont)
